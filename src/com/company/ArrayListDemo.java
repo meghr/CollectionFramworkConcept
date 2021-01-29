@@ -1,9 +1,8 @@
 package com.company;
 
-import javax.management.ObjectName;
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.stream.Collectors;
 
 public class ArrayListDemo {
 
@@ -17,7 +16,7 @@ public class ArrayListDemo {
         // Default Generics
 
 
-        ArrayList<Object> ar = new ArrayList();
+        ArrayList<Object> ar = new ArrayList<>();
 
         ar.add("Meghraj"); // at 0th  Position
         ar.add(1); // at 1st  Position
@@ -43,7 +42,7 @@ public class ArrayListDemo {
 
         // Virtual Capacity of an Array List  : By Default Java give the size 10 for array list
 
-        ArrayList<Object> ar1 = new ArrayList();
+        ArrayList<Object> ar1 = new ArrayList<>();
         System.out.println(ar1.size());  // this will give you physical capacity but virtually capciaty is 10 for array list
         ar1.add(100);
         System.out.println(ar1.size()); // PC is 1
@@ -242,7 +241,26 @@ public class ArrayListDemo {
         employee.stream().forEach(n -> System.out.println(n));
     }
 
+    public static void removeDuplicateElement() {
 
+        ArrayList<Integer> number = new ArrayList<Integer>(Arrays.asList(1,2,3,4,4,5,6,7,7,8,9,10,11,11,12,13,13,14,15,16));
 
+        // Using LinkedHashSet
+
+        LinkedHashSet<Integer> linkedHashSet = new LinkedHashSet<Integer>(number);  // As set does not have duplicate value
+
+        ArrayList<Integer> numberListWithoutDuplicateValue = new ArrayList<Integer>(linkedHashSet); // now we are making Array list from LinkedHashSet
+
+        System.out.println(numberListWithoutDuplicateValue);
+
+        // JDK 8 using stream
+
+        ArrayList<Integer> marksList = new ArrayList<Integer>(Arrays.asList(1,2,3,4,4,5,6,7,7,8,9,10,11,11,12,13,13,14,15,16));
+
+        List<Integer> markListUnique = marksList.stream().distinct().collect(Collectors.toList());
+
+        System.out.println(markListUnique);
+
+    }
 
 }
