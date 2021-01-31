@@ -263,4 +263,46 @@ public class ArrayListDemo {
 
     }
 
+    public static void arrayListComparison() {
+
+        // 1. Sort and then Equal:
+
+        ArrayList<String > l1 = new ArrayList<String >(Arrays.asList("A","B","C","D","F"));
+
+        ArrayList<String > l2 = new ArrayList<String >(Arrays.asList("A","B","C","D","F"));
+
+
+        // Sorting the array list
+        Collections.sort(l1);
+        Collections.sort(l2);
+
+        System.out.println(l1.equals(l2)); // This will print false if both list are not equal.
+
+        // 2. Compare two list and find out the additional element
+
+        ArrayList<String > l3 = new ArrayList<String >(Arrays.asList("A","B","C","D","F"));
+        ArrayList<String > l4 = new ArrayList<String >(Arrays.asList("A","B","C","D","E"));
+
+        l4.removeAll(l3);
+
+        System.out.println(l4);
+
+        // 3. Find out the missing element
+
+        ArrayList<String > l5 = new ArrayList<String >(Arrays.asList("A","B","C","D","F"));
+        ArrayList<String > l6 = new ArrayList<String >(Arrays.asList("A","B","C","D","E"));
+        l5.removeAll(l6);
+        System.out.println(l5);
+
+        // 4. Find out the common element
+        ArrayList<String > l7 = new ArrayList<String >(Arrays.asList("Java","C#","C","D","F"));
+        ArrayList<String > l8 = new ArrayList<String >(Arrays.asList("A","B","C#","Java","E"));
+
+        l7.retainAll(l8);
+        System.out.println(l7);
+
+
+    }
+
+
 }
