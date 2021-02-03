@@ -23,6 +23,8 @@ public class Main {
 
         HashMapDemo.HashMapBasics();
 
+        HashMapDemo.HashMapCompare();
+
 
 
 
