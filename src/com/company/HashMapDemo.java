@@ -1,6 +1,8 @@
 package com.company;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class HashMapDemo {
 
@@ -9,6 +11,14 @@ public class HashMapDemo {
     // Hashmap Store <key,value>
     // Hashmap can storee n number of null value but for key it can have only one null key
     // HashMap is not synchronize and not thread safe
+
+    public static Map<String ,Integer> marksMap;
+
+    static {
+        marksMap = new HashMap<>();
+        marksMap.put("A",100);
+        marksMap.put("B",200);
+    }
 
     public static void HashMapBasics() {
         HashMap<String, String> capitalMap = new HashMap<String, String>();
@@ -136,6 +146,88 @@ public class HashMapDemo {
         // Duplicate are  allowed : Using HashSet
 
         System.out.println(new HashSet<>(map5.values()).equals(new HashSet<>(map6.values()))); // true
+
+    }
+
+    public static void HashMapInitialization() {
+
+        // 1. Using HashMap
+
+        HashMap<String ,String> map1 = new HashMap<String ,String >();
+
+        Map<String,String>  map2 = new HashMap<String ,String >();
+
+        map1.put("MeghRaj","Sharma");
+
+        map2.put("Miku","Sharma");
+
+        // 2. Static HashMap
+
+        System.out.println(HashMapDemo.marksMap.get("A"));
+
+        // 3. Immuatable HashMap with only one single entry
+
+        Map<String,Integer> map3 = Collections.singletonMap("test",100);
+
+        System.out.println(map3.get("test"));
+
+        // map3.put("test2",101); // UnsupportedOperationException :::this will give the error as this map is immuatble and allow only one key value
+
+        // 4. JDK 8 : Creating 2d Array of string using stream and then collecting it in Map
+
+        Map<String ,String > map4 = Stream.of(new String [] [] {
+                {"Tom","From Africa"},
+                {"Rina", "From China"}
+        }).collect(Collectors.toMap(data -> data[0],data -> data[1]));
+        System.out.println(map4.get("Rina"));
+
+        // 5. Simple Entry method :: Mutable Map
+
+        Map<String ,String > map5 =  Stream.of(
+                new AbstractMap.SimpleImmutableEntry<>("Hina","Python"),
+                new AbstractMap.SimpleImmutableEntry<>("Raj","Photon")
+        ).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+        System.out.println(map5.get("Raj"));
+        map5.put("Megh","C#");
+        System.out.println(map5.get("Megh"));
+
+        // Jdk 1.9
+
+        // EMpty Map
+
+         /* Map<String,String> emptyMap = Map.of();
+        emptyMap.put("Raju","Cool");
+        System.out.println(emptyMap.get("Raju")); // UnsupportedOperationException :: as this is empty map we can not put any value in it*/
+
+        // Singleton Map in JDK 1.9
+
+        /*Map<String,String> singletonMap = Map.of("Raj","Kumar");
+        singletonMap.put("Raju","Cool");
+        System.out.println(singletonMap.get("Raju")); // UnsupportedOperationException :: as this can have single  key and value */
+
+        // Multi Map value :: limitation Support max 10 key pair
+        Map<String,String> multiValueMap = Map.of("k1","v1","k2","v2");
+        System.out.println(multiValueMap.get("k2"));
+
+        // map entry:: No Limitation but its immutable
+
+        Map<String,Integer> map7 = Map.ofEntries(
+                new AbstractMap.SimpleEntry<>("A",100),
+                new AbstractMap.SimpleEntry<>("B",200),
+                new AbstractMap.SimpleEntry<>("C",300),
+                new AbstractMap.SimpleEntry<>("D",400)
+        );
+        System.out.println(map7.get("D"));
+       // map7.put("E",500); // UnsupportedOperationException
+
+
+
+
+
+
+
+
 
     }
 

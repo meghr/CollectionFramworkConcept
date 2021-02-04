@@ -25,6 +25,8 @@ public class Main {
 
         HashMapDemo.HashMapCompare();
 
+        HashMapDemo.HashMapInitialization();
+
 
 
 
