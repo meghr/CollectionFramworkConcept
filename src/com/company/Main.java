@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-       /*ArrayListDemo.arrayListDemoCall();
+    /*   ArrayListDemo.arrayListDemoCall();
 
        ArrayListDemo.gerericArrayListDemoCall();
 
@@ -19,7 +19,7 @@ public class Main {
 
        ArrayListDemo.removeDuplicateElement();
 
-       ArrayListDemo.arrayListComparison();*/
+       ArrayListDemo.arrayListComparison();
 
         HashMapDemo.HashMapBasics();
 
@@ -29,7 +29,10 @@ public class Main {
 
         HashMapDemo.ConcurrentHashMap();
 
-        HashMapDemo.SynchronziedMap();
+        HashMapDemo.SynchronziedMap();*/
+
+        HashMapDemo.HashMapToArrayList();
+
 
     }
 }

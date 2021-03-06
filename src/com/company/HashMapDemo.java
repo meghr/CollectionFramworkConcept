@@ -251,4 +251,44 @@ public class HashMapDemo {
         System.out.println(synMap);
     }
 
+    public static void HashMapToArrayList() {
+
+        HashMap<String,String > companyMap = new HashMap<String,String>();
+
+        companyMap.put("Google","USA");
+        companyMap.put("TCS","India");
+        companyMap.put("Honda","JPN");
+
+        System.out.println("Size of HashMap" + companyMap.size());
+
+        Iterator iterator = companyMap.entrySet().iterator();
+
+        while (iterator.hasNext()){
+
+            Map.Entry pairs = (Map.Entry) iterator.next();
+            System.out.println("Company name is " + pairs.getKey() + " Company Location is " + pairs.getValue());
+
+        }
+
+        // Converting Hasmap keyset to array list
+        System.out.println("**** Converting to hasmap keys  to array list *******");
+
+
+
+        List<String> companyNameList = new ArrayList<>(companyMap.keySet());
+
+        for (String t:companyNameList) {
+            System.out.println(t);
+        }
+
+        // Converting Hasmap valueset to array list
+        System.out.println("**** Converting to hasmap Value to array list  *****");
+        List<String> companyLocation = new ArrayList<>(companyMap.values());
+
+        for (String t:companyLocation) {
+            System.out.println(t);
+        }
+
+    }
+
 }
