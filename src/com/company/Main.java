@@ -27,8 +27,9 @@ public class Main {
 
         HashMapDemo.HashMapInitialization();
 
+        HashMapDemo.ConcurrentHashMap();
 
-
+        HashMapDemo.SynchronziedMap();
 
     }
 }

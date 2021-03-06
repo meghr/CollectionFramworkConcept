@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -221,14 +222,33 @@ public class HashMapDemo {
         System.out.println(map7.get("D"));
        // map7.put("E",500); // UnsupportedOperationException
 
+    }
+
+    public static void ConcurrentHashMap() {
+
+        // Concurrent Hash map never throw Conncurrent Modication exception as its thread safe. It does not lock whole object it lock only segment and
+        // N number  of thread can perform read operation
+        ConcurrentHashMap<String ,String> concurrentHashMap = new ConcurrentHashMap<String,String>();
+
+        concurrentHashMap.put("Megh","Sharma");
+        concurrentHashMap.put("Tanmay","Sharma");
+
+        System.out.println(concurrentHashMap.get("Tanmay"));
 
 
+    }
 
+    public static void SynchronziedMap() {
 
+        Map<String,String> map1 = new HashMap<String,String>();
 
+        map1.put("Raj","Kumar");
+        map1.put("Niranjan","Sharma");
 
+        // Creating Synchronzied Hash map
+        Map<String ,String > synMap = Collections.synchronizedMap(map1);
 
-
+        System.out.println(synMap);
     }
 
 }
