@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Comparator;
 import java.util.Set;
 
 public class Main {
@@ -53,7 +54,6 @@ public class Main {
 
         TreeMapDemo treeMapDemo = new TreeMapDemo();
 
-        // System.out.println(treeMap.getTreeMap());
         treeMapDemo.printTreeMap();
 
         // printing key less than 500
@@ -68,6 +68,9 @@ public class Main {
 
         System.out.println(greaterThan500);
 
+       // For reverse tree map
+
+        treeMapDemo.printReverseTreeMap();
 
     }
 }
